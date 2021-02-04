@@ -2,9 +2,9 @@
     <div class="notes">
         <div class="note" :class="[{ full: !grid}, note.priority]"  v-for="(note, index) in notes" :key="index">
             <div class="note-header" :class="{ full: !grid }">
-                <div @click="changeTitle(index)">
-                <p>{{ note.title }}</p>
-                <input type="text" :value="note.title" v-if="editTitle">
+                <div @click="changeTitle">
+                <p v-if="!note.editTitle">{{ note.title }}</p>
+                <input type="text" :value="note.title" v-if="note.editTitle">
                 </div>
                 <p style="cursor: pointer;" @click="removeNote(index)">x</p>
             </div>
@@ -26,10 +26,6 @@ export default {
         grid: {
             type: Boolean,
             required: true
-        },
-        editTitle: {
-            type: Boolean,
-            required: true
         }
     },
     methods: {
@@ -39,7 +35,7 @@ export default {
         },
         changeTitle (index) {
             console.log(`Change Title in ${index}`)
-            this.$emit('editTitle', true)
+            note.editTitle = !note.editTitle
         }
     }
 }

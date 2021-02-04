@@ -53,7 +53,6 @@ export default {
       search: '',
       message: null,
       grid: true,
-      editTitle: false,
             note : {
                 title: '',
                 descr: '',
@@ -64,19 +63,22 @@ export default {
                     title: 'First Note',
                     descr: 'Description for first note',
                     priority: 'normal',
-                    date: new Date(Date.now()).toLocaleDateString()
+                    date: new Date(Date.now()).toLocaleDateString(),
+                    editTitle: false
                 },
                 {
                     title: 'Second Note',
                     descr: 'Description for second note',
                     priority: 'normal',
-                    date: new Date(Date.now()).toLocaleDateString()
+                    date: new Date(Date.now()).toLocaleDateString(),
+                    editTitle: false
                 },
                 {
                     title: 'Third Note',
                     descr: 'Description for third note',
                     priority: 'normal',
-                    date: new Date(Date.now()).toLocaleDateString()
+                    date: new Date(Date.now()).toLocaleDateString(),
+                    editTitle: false
                 },
             ]
     }
