@@ -51,8 +51,9 @@ export default {
     return {
       title: 'Notes App',
       search: '',
-            message: null,
-            grid: true,
+      message: null,
+      grid: true,
+      editTitle: false,
             note : {
                 title: '',
                 descr: '',
