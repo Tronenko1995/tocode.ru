@@ -2,9 +2,9 @@
     <div class="notes">
         <div class="note" :class="[{ full: !grid}, note.priority]"  v-for="(note, index) in notes" :key="index">
             <div class="note-header" :class="{ full: !grid }">
-                <div @click="changeTitle">
-                <p v-if="!note.editTitle">{{ note.title }}</p>
-                <input type="text" :value="note.title" v-if="note.editTitle">
+                <div @click="note.editTitle = true">
+                <p v-show="!note.editTitle">{{ note.title }}</p>
+                <input type="text" :value="note.title" v-show="note.editTitle" v-on:keyup.enter="messsage('enter')">
                 </div>
                 <p style="cursor: pointer;" @click="removeNote(index)">x</p>
             </div>
@@ -33,10 +33,21 @@ export default {
             console.log(`Note id - ${index} removed`)
             this.$emit('remove', index)
         },
-        changeTitle (index) {
-            console.log(`Change Title in ${index}`)
-            note.editTitle = !note.editTitle
+        greet: function (event) {
+        // `this` внутри методов указывает на экземпляр Vue
+            alert('Привет, ' + this.name + '!')
+        // `event` — нативное событие DOM
+            if (event) {
+                alert(event.target.tagName)
+            }
+        },
+        message: function (message) {
+            alert(message);
         }
+        // changeTitle (index) {
+        //     console.log(`Change Title in ${index}`)
+        //     note.editTitle = !note.editTitle
+        // }
     }
 }
 </script>
