@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <h1>String: {{ name }}</h1>
+    <h1>Sum (10 + 60): {{ 10 + 60 }}</h1>
+    <h1>Number: {{ number }}</h1>
+    <h1>Method: {{ sayHello() }}</h1>
+    <h1>If statement: {{ isOk ? 'I am OK' : 'I am not OK!!!' }}</h1>
+    <h1>Function {{ string.split('').reverse().join('') }}</h1>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            name: 'Vue!',
+            number: 100,
+            isOk: true,
+            string: 'Alex'
+        },
+        methods: {
+            sayHello: function() {
+                return 'Hello Vue!'
+            }
+        }
+    })
+</script>
+</body>
+</html>
