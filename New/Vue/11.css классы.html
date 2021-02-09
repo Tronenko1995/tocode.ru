@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <style>
+        .circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 1px solid #000;
+            margin: 10px;
+        }
+
+        .red {
+            background: red;
+        }
+        .green {
+            background: green;
+        }
+        .blue {
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div class="circle" @click="isActive = !isActive" :class="{'red':isActive,'green':!isActive}"></div>
+    <div class="circle" :class="[color,{'red':isActive}]"></div>
+    <div class="circle" :class="getCssClass"></div>
+    <input type="text" v-model="color">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isActive: false,
+            color: ''
+        },
+        computed: {
+            getCssClass: function () {
+                return {
+                    red: this.isActive,
+                    blue: !this.isActive
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
