@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <h2 v-if="isVisible">I am visible!</h2>
+    <!-- <h2 v-if="!isVisible">No I am not!</h2> -->
+    <h2 v-else>No I am not!</h2>
+
+    <button @click="isVisible = !isVisible">Toggle</button>
+
+    <hr>
+
+    <h2 v-if="type === 'a'">A</h2>
+    <h2 v-else-if="type === 'b'">B</h2>
+    <h2 v-else-if="type === 'c'">C</h2>
+    <h2 v-else>Not Match</h2>
+
+    <input type="text" v-model="type">
+
+    <hr>
+
+    <template v-if="isVisible">
+        <h1>TITLE</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, nemo.</p>
+    </template>
+
+    <template v-else>
+        <h1 style="color: red">TITLE</h1>
+        <p style="color: red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, nemo.</p>
+    </template>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            isVisible: true,
+            type: 'a'
+        }
+    })
+</script>
+</body>
+</html>
