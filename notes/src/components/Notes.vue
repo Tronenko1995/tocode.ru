@@ -4,12 +4,15 @@
             <div class="note-header" :class="{ full: !grid }">
                 <div @click="note.editTitle = true">
                 <p v-show="!note.editTitle">{{ note.title }}</p>
-                <input type="text" :value="note.title" v-show="note.editTitle" v-on:keyup.enter="messsage('enter')">
+                <input type="text" v-model="note.title" v-show="note.editTitle" v-on:keyup.enter="note.editTitle = !note.editTitle">
                 </div>
                 <p style="cursor: pointer;" @click="removeNote(index)">x</p>
             </div>
             <div class="note-body">
-                <p>{{ note.descr }}</p>
+                <div @click="note.editDesc = true">
+                <p v-show="!note.editDesc">{{ note.descr }}</p>
+                <input type="text" v-model="note.descr" v-show="note.editDesc" v-on:keyup.enter="note.editDesc = !note.editDesc">
+                </div>
                 <span>{{ note.date }}</span>
             </div>
         </div>
@@ -49,6 +52,9 @@ export default {
         //     note.editTitle = !note.editTitle
         // }
     }
+    // mounted () {
+    //     this.notes = notes 
+    // }
 }
 </script>
 
