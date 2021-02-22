@@ -56,7 +56,9 @@ export default {
             note : {
                 title: '',
                 descr: '',
-                priority: 'normal'
+                priority: 'normal',
+                editTitle: false,
+                editDesc: false
             },
             notes: [
                 {
@@ -106,8 +108,8 @@ export default {
   },
 methods: {
             addNote() {
-                // console.log(this.note);
-                let {title, descr, priority} = this.note;
+                console.log(this.notes);
+                let {title, descr, priority, editTitle, editDesc} = this.note;
 
 
                 if (title === '') {
@@ -119,12 +121,16 @@ methods: {
                 title,
                 descr,
                 priority,
-                date: new Date(Date.now()).toLocaleDateString()
+                date: new Date(Date.now()).toLocaleDateString(),
+                editTitle,
+                editDesc
                 })
                 this.note.title = ''
                 this.note.descr = ''
                 this.note.priority = ''
                 this.message = null
+                this.note.editTitle = false
+                this.note.editDesc = false
 
             },
             removeNote (index) {

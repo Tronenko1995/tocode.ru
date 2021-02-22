@@ -4,14 +4,14 @@
             <div class="note-header" :class="{ full: !grid }">
                 <div @click="note.editTitle = true">
                 <p v-show="!note.editTitle">{{ note.title }}</p>
-                <input type="text" v-model="note.title" v-show="note.editTitle" v-on:keyup.enter="note.editTitle = !note.editTitle">
+                <input type="text" v-model="note.title" v-show="note.editTitle" v-on:keyup.enter="note.editTitle = false">
                 </div>
                 <p style="cursor: pointer;" @click="removeNote(index)">x</p>
             </div>
             <div class="note-body">
                 <div @click="note.editDesc = true">
                 <p v-show="!note.editDesc">{{ note.descr }}</p>
-                <input type="text" v-model="note.descr" v-show="note.editDesc" v-on:keyup.enter="note.editDesc = !note.editDesc">
+                <input type="text" v-model="note.descr" v-show="note.editDesc" v-on:keyup.enter="note.editDesc = false">
                 </div>
                 <span>{{ note.date }}</span>
             </div>

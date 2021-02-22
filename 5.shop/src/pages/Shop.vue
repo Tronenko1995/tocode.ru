@@ -3,7 +3,11 @@
         <div class="container">
             <section>
                 <h1>Shop Page</h1>
-                <shopItem />
+                    <div class="item__wrap">
+                        <shopItem 
+                        v-for="product in shopList" :key="product.id"
+                        :product="product"/>
+                    </div>
             </section>
         </div>
     </div>
